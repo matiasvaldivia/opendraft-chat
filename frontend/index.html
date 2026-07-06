@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OpenDraft Chat — AI Research Drafts</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📚%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+    <div class="app">
+        <!-- ============================== SIDEBAR ============================== -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="brand">
+                    <div class="brand-mark">📚</div>
+                    <div>
+                        <div>OpenDraft Chat</div>
+                        <div class="brand-sub">19-agent pipeline</div>
+                    </div>
+                </div>
+                <button class="btn-new" id="btn-new-chat">
+                    <span style="font-size:16px;line-height:1">+</span> New research
+                </button>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-label">How it works</div>
+                <div style="font-size:12px;color:var(--text-2);line-height:1.55">
+                    Type a research topic. The 19-agent pipeline searches CrossRef, OpenAlex & arXiv, drafts an academic paper, and exports it as PDF, DOCX, LaTeX and Markdown.
+                </div>
+            </div>
+
+            <div class="history-list" id="history-list">
+                <!-- history items injected here -->
+            </div>
+
+            <div class="sidebar-footer">
+                <div>Powered by <a href="https://github.com/federicodeponte/opendraft" target="_blank">OpenDraft</a> · MIT</div>
+                <div style="margin-top:4px">Citations verified against real databases</div>
+            </div>
+        </aside>
+
+        <!-- ============================== MAIN ================================ -->
+        <main class="main">
+            <div class="topbar">
+                <div class="topbar-left">
+                    <span class="topbar-badge" id="topbar-badge" style="display:none"><span class="pulse-dot"></span> Live</span>
+                    <div class="topbar-title" id="topbar-title">New research</div>
+                </div>
+                <div class="topbar-actions" id="topbar-actions" style="display:none">
+                    <button class="icon-btn danger" id="btn-cancel" title="Cancel generation">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="chat" id="chat">
+                <div class="chat-inner" id="chat-inner">
+                    <!-- Empty state injected here initially -->
+                </div>
+            </div>
+
+            <div class="composer-wrap">
+                <div class="composer-inner">
+                    <div class="options-bar">
+                        <label class="opt">
+                            <span>Type</span>
+                            <select id="opt-paper-type">
+                                <option value="research_paper">Research paper</option>
+                                <option value="bachelor">Bachelor</option>
+                                <option value="master">Master</option>
+                                <option value="phd">PhD</option>
+                            </select>
+                        </label>
+                        <label class="opt">
+                            <span>Mode</span>
+                            <select id="opt-output-type">
+                                <option value="full">Full draft</option>
+                                <option value="expose">Expose only (~3x faster)</option>
+                            </select>
+                        </label>
+                        <label class="opt">
+                            <span>Language</span>
+                            <select id="opt-language">
+                                <option value="en">English</option>
+                                <option value="es">Español</option>
+                                <option value="pt">Português</option>
+                                <option value="fr">Français</option>
+                                <option value="de">Deutsch</option>
+                                <option value="it">Italiano</option>
+                                <option value="zh">中文</option>
+                                <option value="ja">日本語</option>
+                                <option value="ko">한국어</option>
+                                <option value="ru">Русский</option>
+                                <option value="ar">العربية</option>
+                            </select>
+                        </label>
+                        <label class="opt">
+                            <span>Citations</span>
+                            <select id="opt-citation">
+                                <option value="apa">APA</option>
+                                <option value="ieee">IEEE</option>
+                                <option value="chicago">Chicago</option>
+                                <option value="mla">MLA</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div class="composer">
+                        <textarea
+                            id="input"
+                            rows="1"
+                            placeholder="Ask for a research paper, e.g. &quot;The impact of transformer architectures on clinical NLP between 2020-2025&quot;"
+                            autofocus
+                        ></textarea>
+                        <button class="btn-send" id="btn-send" title="Send (Enter)">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="composer-hint">
+                        Press <kbd>Enter</kbd> to send · <kbd>Shift+Enter</kbd> for newline · generations take 10–20 min
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
