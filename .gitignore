@@ -49,3 +49,6 @@ Thumbs.db
 # See README.md setup instructions
 opendraft/
 !opendraft/.gitkeep
+# Backend runtime cache
+backend/.citation_cache_*.json
+
