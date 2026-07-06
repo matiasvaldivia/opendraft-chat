@@ -1,0 +1,51 @@
+# --- Secrets (NEVER commit) ---
+.env
+.env.local
+.env.*.local
+!*.env.example
+opendraft/.env
+opendraft/.env.local
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+*.egg
+
+# --- Node / JS (we have none but be safe) ---
+node_modules/
+dist/
+build/
+
+# --- OpenDraft runtime outputs ---
+backend/outputs/
+backend/server.out.log
+backend/server.err.log
+
+# --- Generated / runtime ---
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# --- IDE / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# --- OpenDraft is a vendored dependency (clone separately) ---
+# See README.md setup instructions
+opendraft/
+!opendraft/.gitkeep
