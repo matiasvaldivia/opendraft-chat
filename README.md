@@ -52,6 +52,11 @@ The engine's `generate_draft()` is called from a worker thread. A `LocalTracker`
 - **Gemini API key** — free at <https://aistudio.google.com/apikey>
 - ~10 GB free disk for `weasyprint` system deps (Windows users: see Troubleshooting)
 
+## Documentation
+
+- **[docs/HOW_IT_WORKS.md](docs/HOW_IT_WORKS.md)** — qué pasa de punta a punta cuando apretás Send, las 6 fases del pipeline, el flujo SSE, troubleshooting rápido.
+- **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** — arquitectura técnica: capas, contratos entre frontend/backend/engine, mapa de archivos, decisiones de diseño, puntos de extensión.
+
 ## Quick start
 
 ### Prerequisites
